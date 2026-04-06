@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --brand: #6366f1;
+    --brand-dark: #4f46e5;
+    --accent: #8b5cf6;
+    --sidebar-bg: #0f0f23;
+    --sidebar-border: #1e1e3a;
+    --sidebar-text: #a0a0c0;
+    --sidebar-active: #6366f1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f0f2ff;
+    color: #111827;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbars ────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7d2fe;
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a5b4fc;
+}
+
+/* ─── Glass Card ─────────────────────────────── */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ─── Premium Gradient ───────────────────────── */
+.grad-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.grad-indigo {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.grad-text {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ─── Orbit Decoration ───────────────────────── */
+@keyframes orbit {
+    from {
+        transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 20px rgba(99, 102, 241, 0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.float-anim {
+    animation: float 4s ease-in-out infinite;
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─── Sidebar Dark ──────────────────────────── */
+.sidebar-dark {
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+}
+
+.sidebar-link {
+    color: var(--sidebar-text);
+    transition: all 0.2s ease;
+    border-radius: 10px;
+}
+
+.sidebar-link:hover {
+    background: rgba(99, 102, 241, 0.12);
+    color: #fff;
+}
+
+.sidebar-link.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* ─── Premium Input ─────────────────────────── */
+.premium-input {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid #e0e7ff;
+    border-radius: 12px;
+    padding: 12px 16px 12px 42px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    outline: none;
+    width: 100%;
+}
+
+.premium-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ─── Stat Card ─────────────────────────────── */
+.stat-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.1);
+}
+
+/* ─── Badge ──────────────────────────────────── */
+.badge-pending {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+.badge-approved {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+
+.badge-declined {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+/* ─── Slot Pill ──────────────────────────────── */
+.slot-pill {
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    border: 1.5px solid #c7d2fe;
+    border-radius: 12px;
+    color: #4338ca;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.slot-pill:hover {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    transform: translateY(-2px);
+}
+
+/* ─── Chat bubble ───────────────────────────── */
+.chat-bubble-me {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border-radius: 18px 18px 4px 18px;
+}
+
+.chat-bubble-other {
+    background: #f1f5f9;
+    color: #1e293b;
+    border-radius: 18px 18px 18px 4px;
+}
+
+/* ─── Glow Card ──────────────────────────────── */
+.glow-card {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.glow-card:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12);
+    transform: translateY(-4px);
+}
+
+/* ─── Page Background ───────────────────────── */
+.page-bg {
+    background: linear-gradient(160deg, #eef2ff 0%, #f0e7ff 50%, #e8f4fd 100%);
+    min-height: 100vh;
+}

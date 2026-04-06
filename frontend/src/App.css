@@ -1,0 +1,7 @@
+/* Reset app.css default styles that conflict with our full-page layouts */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
