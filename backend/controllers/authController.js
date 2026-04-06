@@ -19,7 +19,7 @@ const authUser = async (req, res) => {
                 return res.status(401).json({ message: 'Please use the admin login portal' });
             }
 
-            generateToken(res, user._id);
+            generateToken(req, res, user._id);
             res.json({
                 _id: user._id,
                 name: user.name,
@@ -34,7 +34,7 @@ const authUser = async (req, res) => {
     else if (role === 'counselor') {
         const counselor = await Counselor.findOne({ email });
         if (counselor && (await counselor.matchPassword(password))) {
-            generateToken(res, counselor._id);
+            generateToken(req, res, counselor._id);
             res.json({
                 _id: counselor._id,
                 name: counselor.name,
@@ -73,7 +73,7 @@ const registerUser = async (req, res) => {
     });
 
     if (user) {
-        generateToken(res, user._id);
+        generateToken(req, res, user._id);
         res.status(201).json({
             _id: user._id,
             name: user.name,

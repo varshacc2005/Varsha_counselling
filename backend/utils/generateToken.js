@@ -1,15 +1,17 @@
 const jwt = require('jsonwebtoken');
 
-const generateToken = (res, userId) => {
+const generateToken = (req, res, userId) => {
     const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
         expiresIn: '30d',
     });
 
+    const isProduction = process.env.NODE_ENV === 'production' || req.get('host').includes('onrender.com');
+
     res.cookie('jwt', token, {
         httpOnly: true,
-        sameSite: process.env.NODE_ENV === 'development' ? 'lax' : 'none', // Allow cross-domain cookies in production
-        secure: process.env.NODE_ENV !== 'development', // Use secure cookies in production (required for sameSite 'none')
-        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+        sameSite: isProduction ? 'none' : 'lax', // Must be 'none' for cross-domain
+        secure: isProduction, // Must be true for sameSite 'none'
+        maxAge: 30 * 24 * 60 * 60 * 1000,
     });
 };
 
