@@ -16,7 +16,7 @@ app.use(cookieParser());
 const origins = [
     'http://localhost:5173',
     'http://localhost:5174',
-    'https://varsha-counselling.vercel.app/login'
+    'https://varsha-counselling.vercel.app'
 ];
 if (process.env.FRONTEND_URL) {
     origins.push(...process.env.FRONTEND_URL.split(',').map(u => u.trim()));
