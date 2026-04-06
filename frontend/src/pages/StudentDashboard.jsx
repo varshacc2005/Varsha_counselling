@@ -30,6 +30,7 @@ const StudentDashboard = ({ defaultTab = 'find-counselors' }) => {
     const [cancelBookingId, setCancelBookingId] = useState(null);
 
     useEffect(() => { fetchCounselors(); fetchMyBookings(); }, []);
+    useEffect(() => { setActiveTab(defaultTab); }, [defaultTab]);
     useEffect(() => {
         if (selectedCounselor && filterDate) handleSelectCounselor(selectedCounselor);
     }, [filterDate]);

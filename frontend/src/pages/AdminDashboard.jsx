@@ -119,7 +119,7 @@ const SearchBar = ({ value, onChange, placeholder, onRefresh, loading }) => (
 // ────────────────────────────────────────────────────────────────────────────
 //  Main Component
 // ────────────────────────────────────────────────────────────────────────────
-const AdminDashboard = () => {
+const AdminDashboard = ({ defaultTab = 'stats' }) => {
     const { logout } = useAuth();
 
     // ── Overview state ────────────────────────────────────────────────────────
@@ -147,7 +147,7 @@ const AdminDashboard = () => {
     const [counselorLoading, setCounselorLoading] = useState(false);
 
     // ── UI state ──────────────────────────────────────────────────────────────
-    const [activeTab, setActiveTab] = useState('stats');
+    const [activeTab, setActiveTab] = useState(defaultTab);
     const [showCounselorModal, setShowCounselorModal] = useState(false);
     const [showUserModal, setShowUserModal] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
@@ -193,6 +193,7 @@ const AdminDashboard = () => {
     }, []);
 
     // ─────────────────────────────── Effects ─────────────────────────────────
+    useEffect(() => { setActiveTab(defaultTab); }, [defaultTab]);
     useEffect(() => { fetchStats(); }, [fetchStats]);
 
     useEffect(() => {

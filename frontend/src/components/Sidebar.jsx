@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { FaUserMd, FaUserGraduate, FaUserShield, FaSignOutAlt, FaChartPie, FaCalendarAlt, FaUser, FaSearch } from 'react-icons/fa';
+import { FaUserMd, FaUserGraduate, FaUserShield, FaSignOutAlt, FaChartPie, FaCalendarAlt, FaUser, FaSearch, FaChartLine, FaCalendarPlus, FaUsers, FaUserTie } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 import { useAuth } from '../context/AuthContext';
 
@@ -17,9 +17,13 @@ const Sidebar = ({ role }) => {
         counselor: [
             { path: '/counselor', label: 'Dashboard', icon: FaChartPie },
             { path: '/counselor/profile', label: 'My Profile', icon: FaUser },
+            { path: '/counselor/analytics', label: 'Analytics', icon: FaChartLine },
+            { path: '/counselor/slots', label: 'Set Availability', icon: FaCalendarPlus },
         ],
         admin: [
             { path: '/admin', label: 'Overview', icon: FaChartPie },
+            { path: '/admin/students', label: 'Students', icon: FaUsers },
+            { path: '/admin/counselors', label: 'Counselors', icon: FaUserTie },
         ]
     };
 

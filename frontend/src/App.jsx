@@ -51,25 +51,6 @@ function App() {
           </ProtectedRoute>
         }
       />
-
-      <Route
-        path="/counselor"
-        element={
-          <ProtectedRoute allowedRoles={['counselor']}>
-            <CounselorDashboard />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/counselor/profile"
-        element={
-          <ProtectedRoute allowedRoles={['counselor']}>
-            <CounselorDashboard defaultTab="profile" />
-          </ProtectedRoute>
-        }
-      />
-
       <Route
         path="/my-bookings"
         element={
@@ -80,10 +61,59 @@ function App() {
       />
 
       <Route
+        path="/counselor"
+        element={
+          <ProtectedRoute allowedRoles={['counselor']}>
+            <CounselorDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/counselor/profile"
+        element={
+          <ProtectedRoute allowedRoles={['counselor']}>
+            <CounselorDashboard defaultTab="profile" />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/counselor/analytics"
+        element={
+          <ProtectedRoute allowedRoles={['counselor']}>
+            <CounselorDashboard defaultTab="analytics" />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/counselor/slots"
+        element={
+          <ProtectedRoute allowedRoles={['counselor']}>
+            <CounselorDashboard defaultTab="slots" />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
         path="/admin"
         element={
           <ProtectedRoute allowedRoles={['admin']}>
             <AdminDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/students"
+        element={
+          <ProtectedRoute allowedRoles={['admin']}>
+            <AdminDashboard defaultTab="users" />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/counselors"
+        element={
+          <ProtectedRoute allowedRoles={['admin']}>
+            <AdminDashboard defaultTab="counselors" />
           </ProtectedRoute>
         }
       />

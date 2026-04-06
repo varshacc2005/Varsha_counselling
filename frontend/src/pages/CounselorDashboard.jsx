@@ -23,6 +23,7 @@ const CounselorDashboard = ({ defaultTab = 'bookings' }) => {
     const [selectedBookingId, setSelectedBookingId] = useState(null);
     const [savingProfile, setSavingProfile] = useState(false);
 
+    useEffect(() => { setActiveTab(defaultTab); }, [defaultTab]);
     useEffect(() => {
         fetchBookings();
         if (user) {
